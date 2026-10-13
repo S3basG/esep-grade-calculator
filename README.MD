@@ -1,18 +1,36 @@
-# ESEP Grade Calculator
+# Grade Calculator
 
-This library is a simple utility to calculate your grades.
+This Go project calculates a student's final grade. Assignments are worth 50%,
+exams are worth 35%, and essays are worth 15%.
 
-Runtime requirements:
-Golang 1.24+
+## Files
 
-Run unit tests:
+- `grade_calculator.go` has the calculator code.
+- `grade_calculator_test.go` has the tests.
+- `go.mod` has the Go module information.
+
+## Example
+
+```go
+calculator := NewGradeCalculator()
+calculator.AddGrade("assignment 1", 92, Assignment)
+calculator.AddGrade("exam 1", 88, Exam)
+calculator.AddGrade("essay 1", 95, Essay)
+
+finalGrade := calculator.GetFinalGrade()
 ```
-cd grade_calculator/
-go test ./...
+
+## Run the tests
+
+You need Go 1.24 or newer. From the repository folder, run:
+
+```sh
+cd grade-calculator
+go test
 ```
 
-Run unit tests with code coverage:
-```
-cd grade_calculator/
-go test -coverprofile=coverage.txt ./...
+To check test coverage, run:
+
+```sh
+go test -cover
 ```
